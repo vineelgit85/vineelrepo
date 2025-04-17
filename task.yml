@@ -1,0 +1,17 @@
+- hosts: web
+  become: yes
+  connection: ssh
+  
+  tasks:
+    - name: Create a directory (controlled via survey)
+      file: 
+        path: "{{ dir_path }}"
+        state: "{{ dir_state }}"
+
+    - name: Create a user (controlled via survey)
+      user:
+        name: usertest2
+        shell: /bin/bash
+        uid: 6666
+        comment: "my rh-aaap user"
+        state: absent
