@@ -1,0 +1,12 @@
+---
+- name: Setup Webserver with NGINX
+  hosts: sj_Dev
+  become: yes
+  roles:
+    - webserver
+
+- name: Setup Appserver with Flask
+  hosts: sj_Prod
+  become: yes
+  roles:
+    - appserver

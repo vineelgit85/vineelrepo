@@ -1,0 +1,26 @@
+---
+- hosts: sj_Prod
+  tasks:
+  - name: create directory
+    file:
+      path: /tmp/sivajyothi
+      state: directory
+  - name: create a user 
+    user:
+      name: aapuser
+      shell: /bin/bash
+      uid: 2000
+      comment: "my first aap user"
+      state: present
+  - name: Create a directory (controlled via survey)
+    file: 
+      path: "{{ dir_path }}"
+      state: "{{ dir_state }}"
+  - name: Create a user (controlled via survey)
+    user:
+      name: usertest
+      shell: /bin/bash
+      uid: 6666
+      comment: "my rh-aaap user"
+      state: "{{ user_state }}"
+      
