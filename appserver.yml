@@ -1,6 +1,6 @@
 ---
 - name: Deploy web server
-  hosts: sj_Prod
+  hosts: vk_Prod
   vars:
     env: "{{ environment }}"
     version: "{{ app_version }}"
@@ -10,6 +10,6 @@
         msg: "Deploying to {{ env }} environment with version {{ version }}"
 
 - name: Setup Appserver with Flask
-  hosts: sj_Prod
+  hosts: vk_Prod
   roles:
     - appserver    
