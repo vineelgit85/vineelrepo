@@ -1,6 +1,6 @@
 ---
 - name: Install NGINX web server
-  hosts: sj_Dev
+  hosts: vk_Dev
   tasks:
     - name: Install nginx package
       apt:
