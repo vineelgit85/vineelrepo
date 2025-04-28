@@ -1,5 +1,5 @@
 ---
 - name: Setup Webserver with NGINX
-  hosts: sj_Dev
+  hosts: vk_Dev
   roles:
     - webserver
