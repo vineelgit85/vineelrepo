@@ -1,16 +1,16 @@
 ---
-- hosts: sj_Prod
+- hosts: vk_Prod
   tasks:
   - name: create directory
     file:
-      path: /tmp/sivajyothi
+      path: /tmp/vk
       state: directory
   - name: create a user 
     user:
       name: aapuser
       shell: /bin/bash
       uid: 2000
-      comment: "my first aap user"
+      comment: "aap user"
       state: present
   - name: Create a directory (controlled via survey)
     file: 
@@ -21,6 +21,6 @@
       name: usertest
       shell: /bin/bash
       uid: 6666
-      comment: "my rh-aaap user"
+      comment: "rh-aap user"
       state: "{{ user_state }}"
       
