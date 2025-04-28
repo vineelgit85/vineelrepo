@@ -1,0 +1,12 @@
+---
+- hosts: app  
+  vars_files:
+    - ../vaultsecret.yml
+ 
+  tasks:
+    - name: Show encrypted web admin password
+      debug:
+        var: web_admin_password
+    - name: Show encrypted db conection string
+      debug:
+        var: db_connection_string
