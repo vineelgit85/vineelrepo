@@ -1,0 +1,6 @@
+# handlers/main.yml
+---
+- name: restart gunicorn
+  ansible.builtin.systemd:
+    name: "{{ flask_app_name }}.service"
+    state: restarted

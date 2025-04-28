@@ -1,0 +1,16 @@
+# templates/flaskapp.service.j2
+[Unit]
+Description=Flask Application (Gunicorn)
+After=network.target
+
+[Service]
+User={{ flask_app_user }}
+Group={{ flask_app_group }}
+WorkingDirectory={{ flask_app_directory }}
+ExecStart={{ flask_venv }}/bin/gunicorn -w 4 -b {{ flask_app_host }}:{{ flask_app_port }} app:app
+Environment="PATH={{ flask_venv }}/bin"
+Environment="FLASK_APP={{ flask_app_directory }}/{{ flask_app_file }}"
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

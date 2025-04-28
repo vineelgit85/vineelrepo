@@ -1,0 +1,9 @@
+# defaults/main.yml
+flask_app_name: "sjflaskapp"
+flask_app_directory: "/home/ubuntu/{{ flask_app_name }}"
+flask_app_port: "8888"
+flask_app_host: "0.0.0.0"
+flask_app_user: "ubuntu"
+flask_app_group: "ubuntu"
+flask_venv: "{{ flask_app_directory }}/venv"
+flask_app_file: "app.py"
