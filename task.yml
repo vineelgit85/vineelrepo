@@ -13,5 +13,5 @@
         name: usertest2
         shell: /bin/bash
         uid: 6666
-        comment: "my rh-aaap user"
+        comment: "rh-aap user"
         state: absent
