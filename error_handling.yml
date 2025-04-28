@@ -1,0 +1,8 @@
+---
+- name: Install NGINX web server
+  hosts: sj_Dev
+  tasks:
+    - name: Install nginx package
+      apt:
+        name: nginx
+        state: present

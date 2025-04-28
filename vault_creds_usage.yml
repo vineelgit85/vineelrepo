@@ -1,0 +1,35 @@
+---
+- name: Secure Automation with Ansible Vault on Ubuntu
+  hosts: web, app
+  vars_files:
+    - vault.yml
+  tasks:
+    - name: Debug current host and group
+      debug:
+        msg: "Running on host {{ inventory_hostname }} in group {{ group_names }}"
+
+    - name: Show Encrypted Web Password (web group only)
+      debug:
+        var: web_admin_password
+      when: "'web' in group_names"
+
+    - name: Show Encrypted DB Password (db group only)
+      debug:
+        var: db_connection_string
+      when: "'app' in group_names"
+
+    - name: Create a user with vault password
+      user:
+        name: vaultuser
+        password: "{{ (web_admin_password if 'web' in group_names else db_connection_string) }}"
+        shell: /bin/bash
+        state: present
+
+    - name: Create application configuration file with credentials
+      copy:
+        dest: "/etc/app_secure.conf"
+        content: |
+          [credentials]
+          user = vaultuser
+          password = {{ web_admin_password if 'web' in group_names else db_connection_string }}
+        mode: '0600'

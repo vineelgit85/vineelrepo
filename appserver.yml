@@ -1,0 +1,15 @@
+---
+- name: Deploy web server
+  hosts: sj_Prod
+  vars:
+    env: "{{ environment }}"
+    version: "{{ app_version }}"
+  tasks:
+    - name: Print environment and version
+      debug:
+        msg: "Deploying to {{ env }} environment with version {{ version }}"
+
+- name: Setup Appserver with Flask
+  hosts: sj_Prod
+  roles:
+    - appserver    
