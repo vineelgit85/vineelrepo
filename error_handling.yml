@@ -1,8 +1,0 @@
----
-- name: Install NGINX web server
-  hosts: vk_Dev
-  tasks:
-    - name: Install nginx package
-      apt:
-        name: nginx
-        state: present
