@@ -1,2 +1,0 @@
-env: "{{ environment }}"
-#ansible_password: "{{ web_admin_password }}"
